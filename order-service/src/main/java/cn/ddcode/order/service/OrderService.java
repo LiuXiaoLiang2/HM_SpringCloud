@@ -18,12 +18,15 @@ public class OrderService {
     @Resource
     private RestTemplate restTemplate;
 
+    private String userServiceName = "USER-SERVICE";
+
     public Order queryOrderById(Long orderId) {
         // 1.查询订单
         Order order = orderMapper.findById(orderId);
 
         //使用restTemplate远程调用User模块
-        String url = "http://localhost:8081/user/" + order.getUserId();
+//        String url = "http://localhost:8081/user/" + order.getUserId();
+        String url = "http://" + userServiceName + "/user/" + order.getUserId();
         User user = restTemplate.getForObject(url, User.class);
         order.setUser(user);
         // 4.返回
