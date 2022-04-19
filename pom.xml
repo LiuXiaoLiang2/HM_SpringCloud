@@ -11,6 +11,8 @@
         <module>user-service</module>
         <module>order-service</module>
         <module>cloud-eureka-server</module>
+        <module>user-service-nacos</module>
+        <module>order-service-nacos</module>
     </modules>
 
     <packaging>pom</packaging>
